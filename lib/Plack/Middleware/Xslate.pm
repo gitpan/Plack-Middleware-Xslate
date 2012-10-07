@@ -3,7 +3,7 @@ BEGIN {
   $Plack::Middleware::Xslate::AUTHORITY = 'cpan:DOY';
 }
 {
-  $Plack::Middleware::Xslate::VERSION = '0.01';
+  $Plack::Middleware::Xslate::VERSION = '0.02';
 }
 use strict;
 use warnings;
@@ -107,7 +107,7 @@ Plack::Middleware::Xslate - serve static templates with Plack
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -154,8 +154,9 @@ L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Plack-Middleware-Xslate>.
 
 =head1 SEE ALSO
 
-L<Plack::Request> - Much of this module's API and implementation were taken
-from Plack::Request.
+L<Plack::Middleware::Static>
+
+L<Plack::Middleware::TemplateToolkit>
 
 =head1 SUPPORT
 

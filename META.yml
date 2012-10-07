@@ -32,7 +32,7 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Plack-Middleware-Xslate
   homepage: http://metacpan.org/release/Plack-Middleware-Xslate
   repository: git://github.com/doy/plack-middleware-xslate.git
-version: 0.01
+version: 0.02
 x_Dist_Zilla:
   plugins:
     -
