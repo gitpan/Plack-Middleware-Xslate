@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution Plack-Middleware-Xslate,
-version 0.02:
+version 0.03:
 
   serve static templates with Plack
 

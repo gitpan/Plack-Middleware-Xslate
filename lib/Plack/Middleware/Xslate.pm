@@ -3,7 +3,7 @@ BEGIN {
   $Plack::Middleware::Xslate::AUTHORITY = 'cpan:DOY';
 }
 {
-  $Plack::Middleware::Xslate::VERSION = '0.02';
+  $Plack::Middleware::Xslate::VERSION = '0.03';
 }
 use strict;
 use warnings;
@@ -77,22 +77,13 @@ sub serve_path {
         $filename = File::Spec->abs2rel($filename, $self->root);
     }
 
-    my $rendered = $self->{xslate}->render($filename, $self->xslate_vars);
-
-    my @headers;
-    while (@{ $res->[1] }) {
-        my ($k, $v) = splice @{ $res->[1] }, 0, 2;
-        if ($k =~ /^content-length$/i) {
-            $v = length($rendered);
-        }
-        push @headers, $k, $v;
-    }
-
-    return [
-        $res->[0],
-        \@headers,
-        [ $rendered ]
+    $res->[2] = [
+        $self->{xslate}->render($filename, $self->xslate_vars)
     ];
+
+    Plack::Util::header_set($res->[1], 'Content-Length', length($res->[2][0]));
+
+    return $res;
 }
 
 
@@ -107,7 +98,7 @@ Plack::Middleware::Xslate - serve static templates with Plack
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
